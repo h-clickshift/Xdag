@@ -1,0 +1,19 @@
+// file info proto
+// protoc -I . --go_out=. file.proto
+syntax = "proto3";
+package demo; // proto package nae
+
+option go_package = "./pb"; // go_package path;name
+
+message req {
+    string path = 1;
+}
+
+message resp {
+    string path = 4;
+    string md5 = 5;
+    bool IsDir = 6;
+    bytes content = 7;
+}
+
+
