@@ -1,0 +1,15 @@
+// server
+// protoc -I . --go-grpc_out=require_unimplemented_servers=false:. server.proto
+
+syntax = "proto3";
+package demo;
+import "file.proto";
+import "google/api/annotations.proto";
+
+option go_package = "./pb";
+
+service File_check {
+    rpc Execute(req) returns (resp) {
+    option(google.api.http) = {get: "/v1/{path}"};
+    }
+}
